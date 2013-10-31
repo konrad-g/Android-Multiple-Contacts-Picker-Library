@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+      <LinearLayout
+        android:id="@+id/linearlayoutSearchBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+        
+          <LinearLayout
+        android:id="@+id/linearlayoutSearchBoxWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+	        <ImageView
+	            android:id="@+id/imageViewSearchBox"
+	            android:layout_width="35dp"
+	            android:layout_height="35dp"
+	            android:src="@drawable/ic_menu_search" />
+	
+	        <EditText
+	            android:id="@+id/editTextSearchBox"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:ems="10" />
+
+	        <ImageButton
+	            android:id="@+id/imageButtonCloseSearchBox"
+	            android:layout_width="35dp"
+	            android:layout_height="35dp"
+	            android:background="@null"
+	            android:src="@drawable/btn_close_search_blue" />
+        
+        </LinearLayout>
+
+    </LinearLayout>
+
+      <ListView
+          android:id="@+id/lvContacts"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:divider="@android:color/transparent" 
+          android:dividerHeight="0px" >
+      </ListView>
+
+</LinearLayout>

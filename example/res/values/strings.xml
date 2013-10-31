@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">Android Multiple Contacts Picker</string>
+    <string name="pick_contacts">Pick contacts</string>
+    <string name="check_all">Check all</string>
+
+</resources>
