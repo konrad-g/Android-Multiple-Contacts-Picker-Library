@@ -1,6 +1,7 @@
 
 package com.reptilemobile.MultipleContactsPicker;
 import java.util.ArrayList;
+import java.util.List;
 
 
 import java.util.Iterator;
@@ -350,7 +351,25 @@ public class ContactPickerActivity extends SherlockActivity {
 			setResult(Activity.RESULT_CANCELED, null);
 			finish();
 			return true;
+        } else if( id == R.id.menu_check) {
+        	
+        	//Check or uncheck all
+			allChecked = !allChecked;
+			
+			List<ContactData> contacts = contactsAdapter.items;
+			Iterator<ContactData> iterContacts = contacts.iterator();
+			
+			while(iterContacts.hasNext()) {
+				ContactData contact = iterContacts.next();
+				contact.checked = allChecked;
+			}
+			
+			contactsAdapter.notifyDataSetChanged();
+			
+			return true;
+        
         }
+
 
 		return super.onOptionsItemSelected(item);
     }

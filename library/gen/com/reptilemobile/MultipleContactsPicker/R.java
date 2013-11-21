@@ -835,8 +835,9 @@ containing a value of this type.
         public static int listMode=0x7f040002;
         public static int llWrapper=0x7f04002d;
         public static int lvContacts=0x7f04002c;
-        public static int menu_cancel=0x7f040034;
-        public static int menu_done=0x7f040033;
+        public static int menu_cancel=0x7f040035;
+        public static int menu_check=0x7f040033;
+        public static int menu_done=0x7f040034;
         public static int menu_search=0x7f040032;
         public static int normal=0x7f040001;
         public static int showCustom=0x7f040008;
@@ -912,6 +913,7 @@ containing a value of this type.
          */
         public static int abs__shareactionprovider_share_with_application=0x7f090009;
         public static int app_name=0x7f09000a;
+        public static int check_all_none=0x7f09000e;
         public static int pick_contacts=0x7f09000c;
         public static int pick_contacts_action=0x7f09000d;
         public static int search=0x7f09000b;

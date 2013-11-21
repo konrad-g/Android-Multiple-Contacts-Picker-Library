@@ -4,5 +4,6 @@
     <string name="search">Search</string>
     <string name="pick_contacts">Pick contacts</string>
     <string name="pick_contacts_action">PICK_CONTACTS_ACTION</string>
+    <string name="check_all_none">Check all/none</string>
 
 </resources>

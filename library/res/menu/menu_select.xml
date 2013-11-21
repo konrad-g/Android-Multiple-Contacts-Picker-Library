@@ -7,6 +7,12 @@
         android:icon="@drawable/ic_menu_search"
         android:title="@string/search"        
     />
+    
+    <item
+        android:showAsAction="always|withText"
+        android:id="@+id/menu_check"
+        android:icon="@drawable/ic_menu_mark" 
+        android:title="@string/check_all_none"></item>
 
   <item
         android:showAsAction="always|withText"
