@@ -790,7 +790,8 @@ containing a value of this type.
         public static int ic_launcher=0x7f020058;
         public static int ic_menu_cancel=0x7f020059;
         public static int ic_menu_done=0x7f02005a;
-        public static int ic_menu_search=0x7f02005b;
+        public static int ic_menu_mark=0x7f02005b;
+        public static int ic_menu_search=0x7f02005c;
     }
     public static final class id {
         public static int abs__action_bar=0x7f040022;

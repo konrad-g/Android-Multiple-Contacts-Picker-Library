@@ -21,9 +21,9 @@ public class ContactAdapter extends ArrayAdapter<ContactData> {
 	public ArrayList<ContactData> items;
 	public String filter = "";
 
-	Activity actv;
+	ContactPickerActivity actv;
 
-    public ContactAdapter(Activity actv, ArrayList<ContactData> items) {
+    public ContactAdapter(ContactPickerActivity actv, ArrayList<ContactData> items) {
         super(actv, R.layout.contact_row,items );
 
         this.actv = actv;
@@ -77,7 +77,7 @@ public class ContactAdapter extends ArrayAdapter<ContactData> {
         }
         
         //Set items
-        tvName.setText(contact.firstname + " " + contact.lastname );
+        tvName.setText(contact.displayName );
         tvData.setText(contact.phoneNmb + " " + contact.email);
         cbSelect.setChecked( contact.checked );
 
@@ -86,6 +86,17 @@ public class ContactAdapter extends ArrayAdapter<ContactData> {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				contact.checked = isChecked;
+				
+				// Update number of selected contacts
+				if(contact.checked) {
+		        	ContactData.contactsSelected++;
+		        } else {
+		        	if(ContactData.contactsSelected > 0) {
+		        		ContactData.contactsSelected--;
+		        	}
+		        }
+				
+				actv.updateNrSelected();
 				
 			}
 		});

@@ -202,7 +202,8 @@ int drawable ic_clear_search_api_holo_light_sel_blue 0x7f020057
 int drawable ic_launcher 0x7f020058
 int drawable ic_menu_cancel 0x7f020059
 int drawable ic_menu_done 0x7f02005a
-int drawable ic_menu_search 0x7f02005b
+int drawable ic_menu_mark 0x7f02005b
+int drawable ic_menu_search 0x7f02005c
 int id abs__action_bar 0x7f040022
 int id abs__action_bar_container 0x7f040021
 int id abs__action_bar_subtitle 0x7f040011

@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -40,6 +41,9 @@ public class ContactPickerActivity extends SherlockActivity {
 	ContactAdapter contactsAdapter = null;
 	boolean allChecked = false;
 	final int BUFFER_INTERVAL = 10;
+	
+	boolean finishTask = false;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +57,11 @@ public class ContactPickerActivity extends SherlockActivity {
 	@Override
 	protected void onResume() {
 		
+		allChecked = false;
+		finishTask = false;
 		if(getIntent().hasExtra(ContactData.CHECK_ALL)) {
 			allChecked = getIntent().getBooleanExtra(ContactData.CHECK_ALL, allChecked);
-		}
+		} 
 		
 		setActionBar();
 		
@@ -66,6 +72,14 @@ public class ContactPickerActivity extends SherlockActivity {
 		setUi();
 		
 		super.onResume();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		
+		finishTask = true;
+		
+		super.onDestroy();
 	}
 	
 	public void setActionBar() {
@@ -107,6 +121,8 @@ public class ContactPickerActivity extends SherlockActivity {
 	
 	public void setUi() {
 		
+		ContactData.contactsSelected = 0;
+		
 		lvContacts.setClickable(true);
 		lvContacts.setOnItemClickListener(new OnItemClickListener() {
 
@@ -117,8 +133,27 @@ public class ContactPickerActivity extends SherlockActivity {
 				ContactData contact = contactsAdapter.getItem(pos);
 				contact.checked = !contact.checked;
 				contactsAdapter.notifyDataSetChanged();
+				
+				// Update number of selected contacts
+				if(contact.checked) {
+		        	ContactData.contactsSelected++;
+		        } else {
+		        	if(ContactData.contactsSelected > 0) {
+		        		ContactData.contactsSelected--;
+		        	}
+		        }
+				
+				updateNrSelected();
 			}
 		});
+		
+		updateNrSelected();
+		
+	}
+	
+	public void updateNrSelected() {
+		setTitle(getString(R.string.pick_contacts) + ": " + String.valueOf(ContactData.contactsSelected) );
+		getSupportActionBar().setTitle(getString(R.string.pick_contacts) + ": " + String.valueOf(ContactData.contactsSelected) );
 		
 	}
 	
@@ -150,7 +185,9 @@ public class ContactPickerActivity extends SherlockActivity {
 		            if(cursor.moveToFirst()) {
 		            	while(!cursor.isAfterLast()) {
 		            		
-		            		
+		            		if(finishTask) {
+		            			return null;
+		            		}
 		            		
 		            		String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
 		            		
@@ -191,10 +228,10 @@ public class ContactPickerActivity extends SherlockActivity {
 		            		}
 		            		
 		            		if(names.length >= 2) {
-		            			firstName = names[1];
+		            			lastName = names[1];
 		            		}
 		            		
-		            		final ContactData contactData = new ContactData(id, firstName, lastName, phoneNmb, email, allChecked);
+		            		final ContactData contactData = new ContactData(id, firstName, lastName, displayname, phoneNmb, email, allChecked);
 		            		
 		            		bufferContacts.add(contactData);
 		            		
@@ -245,6 +282,11 @@ public class ContactPickerActivity extends SherlockActivity {
 	
 	public void addBuffer(ArrayList<ContactData> buffer) {
 	
+		// Add new contacts to count
+		if(allChecked) {
+			ContactData.contactsSelected += buffer.size();
+			updateNrSelected();
+		}
 
 		contactsAdapter.addAll(buffer);
 		contactsAdapter.notifyDataSetChanged();

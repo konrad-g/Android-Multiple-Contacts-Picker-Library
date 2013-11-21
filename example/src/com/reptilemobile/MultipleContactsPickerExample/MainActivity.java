@@ -35,7 +35,6 @@ public class MainActivity extends Activity{
 		initUi();
 		setUi();
 		
-		
 	}
 	
 	public void initUi() {

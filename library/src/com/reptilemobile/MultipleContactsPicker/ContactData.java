@@ -9,6 +9,8 @@ import android.os.Parcelable;
  * kgadzinowski@gmail.com
  */
 public class ContactData implements Parcelable {
+	
+	public static int contactsSelected = 0;
 
 	public static final String CHECK_ALL = "CHECK_ALL";
 	public static final String CONTACTS_DATA = "CONTACTS_DATA";
@@ -17,15 +19,17 @@ public class ContactData implements Parcelable {
 	public String id = "";
 	public String firstname = "";
 	public String lastname = "";
+	public String displayName = "";
 	public String phoneNmb = "";
 	public String email = "";
 	public boolean checked = false;
 	
-	public ContactData(String id, String firstname, String lastname, String phoneNmb, String email, boolean checked ) {
+	public ContactData(String id, String firstname, String lastname, String displayName, String phoneNmb, String email, boolean checked ) {
 		
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.displayName = displayName;
 		this.phoneNmb = phoneNmb;
 		this.email = email;
 		this.checked = checked;
@@ -39,9 +43,10 @@ public class ContactData implements Parcelable {
         this.id = data[0];
         this.firstname = data[1];
         this.lastname = data[2];
-        this.phoneNmb = data[3];
-        this.email = data[4];
-        this.checked = data[5].equals("1") ? true : false;
+        this.displayName = data[3];
+        this.phoneNmb = data[4];
+        this.email = data[5];
+        this.checked = data[6].equals("1") ? true : false;
     }
 
 	@Override
@@ -55,6 +60,7 @@ public class ContactData implements Parcelable {
 			this.id,
 			this.firstname,
 			this.lastname,
+			this.displayName,
 			this.phoneNmb,
 			this.email,
 			this.checked ? "1" : "0"
