@@ -790,7 +790,8 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020058;
         public static final int ic_menu_cancel=0x7f020059;
         public static final int ic_menu_done=0x7f02005a;
-        public static final int ic_menu_search=0x7f02005b;
+        public static final int ic_menu_mark=0x7f02005b;
+        public static final int ic_menu_search=0x7f02005c;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040022;
@@ -836,8 +837,9 @@ containing a value of this type.
         public static final int listMode=0x7f040002;
         public static final int llWrapper=0x7f04002d;
         public static final int lvContacts=0x7f04002c;
-        public static final int menu_cancel=0x7f040037;
-        public static final int menu_done=0x7f040036;
+        public static final int menu_cancel=0x7f040038;
+        public static final int menu_check=0x7f040036;
+        public static final int menu_done=0x7f040037;
         public static final int menu_search=0x7f040035;
         public static final int normal=0x7f040001;
         public static final int scrollView1=0x7f040034;
@@ -915,7 +917,8 @@ containing a value of this type.
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090009;
         public static final int app_name=0x7f09000a;
-        public static final int check_all=0x7f09000e;
+        public static final int check_all=0x7f09000f;
+        public static final int check_all_none=0x7f09000e;
         public static final int pick_contacts=0x7f09000c;
         public static final int pick_contacts_action=0x7f09000d;
         public static final int search=0x7f09000b;

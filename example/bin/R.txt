@@ -247,8 +247,9 @@ int id linearlayoutSearchBoxWrapper 0x7f040028
 int id listMode 0x7f040002
 int id llWrapper 0x7f04002d
 int id lvContacts 0x7f04002c
-int id menu_cancel 0x7f040037
-int id menu_done 0x7f040036
+int id menu_cancel 0x7f040038
+int id menu_check 0x7f040036
+int id menu_done 0x7f040037
 int id menu_search 0x7f040035
 int id normal 0x7f040001
 int id scrollView1 0x7f040034
@@ -298,7 +299,8 @@ int string abs__share_action_provider_share_with 0x7f090006
 int string abs__shareactionprovider_share_with 0x7f090008
 int string abs__shareactionprovider_share_with_application 0x7f090009
 int string app_name 0x7f09000a
-int string check_all 0x7f09000e
+int string check_all 0x7f09000f
+int string check_all_none 0x7f09000e
 int string pick_contacts 0x7f09000c
 int string pick_contacts_action 0x7f09000d
 int string search 0x7f09000b

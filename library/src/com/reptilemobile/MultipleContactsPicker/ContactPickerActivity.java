@@ -364,8 +364,15 @@ public class ContactPickerActivity extends SherlockActivity {
 				contact.checked = allChecked;
 			}
 			
-			contactsAdapter.notifyDataSetChanged();
+			// Update selected contact numbers
+			if(allChecked) {
+				ContactData.contactsSelected = contactsAdapter.getCount();
+			} else {
+				ContactData.contactsSelected = 0;
+			}
 			
+			contactsAdapter.notifyDataSetChanged();
+			updateNrSelected();
 			return true;
         
         }
