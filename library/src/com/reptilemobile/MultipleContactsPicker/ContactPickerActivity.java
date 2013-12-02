@@ -45,12 +45,13 @@ public class ContactPickerActivity extends SherlockActivity {
 	
 	boolean finishTask = false;
 	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
-		super.onCreate(savedInstanceState);
+		setTheme(R.style.Theme_Sherlock);
 		setContentView(R.layout.contact_list);
+		super.onCreate(savedInstanceState);
 		
 		
 	}
