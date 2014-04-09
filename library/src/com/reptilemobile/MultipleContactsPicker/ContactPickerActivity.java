@@ -221,9 +221,13 @@ public class ContactPickerActivity extends SherlockActivity {
 		            		displayname = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
 		            		
 		            		//Divide display name to first and last
-		            		String[] names = displayname.split("\\s+");
+		            		String[] names = new String[]{"---", "---"};
 		            		
-		            		firstName = displayname;
+		            		if(displayname != null) {
+		            			names = displayname.split("\\s+");
+		            			firstName = displayname;
+		            		}
+		            		
 		            		
 		            		if(names.length >= 1) {
 		            			firstName = names[0];
